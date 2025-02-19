@@ -1,7 +1,7 @@
 <?php
 class Genre
 {
-    public $genre;
+    protected $genre;
 
     public function __construct(...$_genre)
     {

@@ -3,7 +3,7 @@ require_once "./Traits/Curiosity.php";
 require_once "./Models/Genre.php";
 require_once "./Models/Movies.php";
 require_once "./db.php";
-
+var_dump($movies[0]);
 ?>
 <!doctype html>
 <html lang="en">
@@ -24,11 +24,28 @@ require_once "./db.php";
 <body>
     <div class="container">
         <div class="row">
-            <div class="card">
-                <div class="card-body">
+            <?php
+            foreach ($movies as $movie) {
 
+
+            ?>
+                <div class="col">
+
+                    <div class="card h-100">
+                        <div class="card-body ">
+                            <h3><?php echo $movie->name; ?></h3>
+                            <p><?php echo $movie->year; ?></p>
+                            <p><?php echo $movie->timing; ?></p>
+                            <p><?php echo $movie->genre->getGenre(); ?></p>
+                            <p><?php echo $movie->getCuriosity() ?? ''; ?></p>
+                        </div>
+                    </div>
                 </div>
-            </div>
+
+
+            <?php
+            }
+            ?>
         </div>
     </div>
 

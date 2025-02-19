@@ -2,10 +2,14 @@
 
 trait Curiosity
 {
-    protected $curiosity;
+    private $curiosity;
 
     public function setCuriosity(...$_curiosity)
     {
-        return $this->curiosity = $_curiosity;
+        $this->curiosity = $_curiosity;
+    }
+    public function getCuriosity()
+    {
+        return !empty($this->curiosity) ? implode(", ", $this->curiosity) : null;
     }
 }
