@@ -1,8 +1,9 @@
 <?php
 require_once "./Models/Movies.php";
+require_once "./Models/Genre.php";
 
-$matrix = new Movie('Matrix', 1999, 136, "USA");
-$troy = new Movie("Troy", 2004, 162, "USA");
+$matrix = new Movie('Matrix', 1999, 136, new Genre('sci-fi'), "USA");
+$troy = new Movie("Troy", 2004, 162, new Genre('action'), "USA");
 var_dump($matrix);
 var_dump($troy);
 echo $troy->getTiming();

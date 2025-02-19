@@ -5,12 +5,14 @@ class Movie
     public $year;
     public $timing;
     public $nationality;
+    public $genre;
 
-    function __construct($_name, $_year, $_timing, $_nationality)
+    function __construct($_name, $_year, $_timing, Genre $_genre, $_nationality)
     {
         $this->name = $_name;
         $this->year = $_year;
         $this->timing = $_timing;
+        $this->genre = $_genre;
         $this->nationality = $_nationality;
     }
     public function getTiming()
