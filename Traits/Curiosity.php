@@ -10,6 +10,6 @@ trait Curiosity
     }
     public function getCuriosity()
     {
-        return !empty($this->curiosity) ? implode(", ", $this->curiosity) : null;
+        return $this->curiosity;
     }
 }

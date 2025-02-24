@@ -3,7 +3,6 @@ require_once "./Traits/Curiosity.php";
 require_once "./Models/Genre.php";
 require_once "./Models/Movies.php";
 require_once "./db.php";
-var_dump($movies[0]);
 ?>
 <!doctype html>
 <html lang="en">
@@ -31,13 +30,30 @@ var_dump($movies[0]);
             ?>
                 <div class="col">
 
-                    <div class="card h-100">
+                    <div class="card position-relative">
+                        <?php
+                        if ($movie->getCuriosity()) {
+                        ?>
+                            <button class="position-absolute top-0 end-0 btn btn-primary m-3 "> more info</button>
+                        <?php
+                        }
+                        ?>
                         <div class="card-body ">
                             <h3><?php echo $movie->name; ?></h3>
                             <p><?php echo $movie->year; ?></p>
                             <p><?php echo $movie->timing; ?></p>
                             <p><?php echo $movie->genre->getGenre(); ?></p>
-                            <p><?php echo $movie->getCuriosity() ?? ''; ?></p>
+                            <ul class="curiosities d-none">
+                                <?php if ($movie->getCuriosity()) {
+                                    $curiosities = $movie->getCuriosity();
+                                    foreach ($curiosities as $curiosity) {
+                                ?>
+                                        <li><?php echo $curiosity ?></li>
+                                <?php
+                                    }
+                                }
+                                ?>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -53,6 +69,7 @@ var_dump($movies[0]);
 
 
 
+    <script src="./assets/app.js"></script>
 </body>
 
 </html>
